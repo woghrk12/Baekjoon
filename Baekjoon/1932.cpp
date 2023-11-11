@@ -16,6 +16,7 @@ int solution(int N, vector<vector<int>>& tree)
 
 		// The leftmost element
 		temp.push_back(dp[i - 1][0] + tree[i][0]);
+		// The elements positioned in the middle
 		for (int j = 1; j < i; j++)
 		{
 			temp.push_back(max(dp[i - 1][j - 1], dp[i - 1][j]) + tree[i][j]);
