@@ -39,8 +39,9 @@ string solution(int n, int k, vector<string> cmds)
 				{
 					k = cells[k].prev;
 				}
+			
+				break;
 			}
-					break;
 
 			case 'D':
 			{
@@ -50,8 +51,9 @@ string solution(int n, int k, vector<string> cmds)
 				{
 					k = cells[k].next;
 				}
-			}
+
 				break;
+			}
 
 			case 'C':
 			{
@@ -71,8 +73,9 @@ string solution(int n, int k, vector<string> cmds)
 				cells[k].is_deleted = true;
 
 				k = cells[k].next >= 0 ? cells[k].next : cells[k].prev;
-			}
+
 				break;
+			}
 
 			case 'Z':
 			{
@@ -91,8 +94,9 @@ string solution(int n, int k, vector<string> cmds)
 				}
 
 				cells[target].is_deleted = false;
-			}
+			
 				break;
+			}
 		}
 	}
 	
