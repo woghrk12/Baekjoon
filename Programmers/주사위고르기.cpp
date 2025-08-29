@@ -11,7 +11,7 @@ void make_list(int depth, int count, vector<int> a_dice_list, vector<int> b_dice
 {
 	if (depth == count)
 	{
-		pair_list.push_back({ a_dice_list, b_dice_list });
+		pair_list.push_back({a_dice_list, b_dice_list});
 		return;
 	}
 
@@ -34,7 +34,7 @@ vector<int> calculation_sum(vector<int> index_list, vector<vector<int>> dice)
 	vector<int> result;
 	int size = index_list.size();
 
-	auto dfs = [&](int depth, int count, int sum, auto&& dfs_ref)
+	auto dfs = [&](int depth, int count, int sum, auto &&dfs_ref)
 	{
 		if (depth == count)
 		{
@@ -93,17 +93,18 @@ vector<int> solution(vector<vector<int>> dice)
 	vector<int> answer;
 	vector<int> a_dice_list, b_dice_list;
 
-	// 1. A와 B가 주사위를 나눠 가진다.
+	// 1. A and B divide the dice between themselves
 	make_list(0, dice.size(), a_dice_list, b_dice_list);
 
-	// 2. 나눠 가진 주사위에 따라 A가 승리할 확률(승리한 횟수로 대체)을 구한다.
+	// 2. Based on the allocation, compute A's probability of winning (using the number of wins as a proxy)
 	int max_cnt = 0;
 	for (int i = 0; i < pair_list.size(); i++)
 	{
 		int result = calculation_portion(i, dice);
-		if (max_cnt >= result) continue;
+		if (max_cnt >= result)
+			continue;
 
-		// 3. 승리할 확률이 가장 높은 케이스를 리턴한다.
+		// 3. Return the case that yields the highest win probability for A
 		max_cnt = result;
 
 		answer.clear();
