@@ -6,10 +6,9 @@ using namespace std;
 
 #define MOD 10007
 
-vector<vector<int>> dp;
-
 int solution(int n, vector<int> tops)
 {
+	vector<vector<int>> dp;
 	// dp[n][0] : the case where it does not affect the (N + 1)th top
 	// dp[n][1] : the case where it does affect the (N + 1)th top
 
@@ -39,19 +38,20 @@ int solution(int n, vector<int> tops)
 
 int main()
 {
-	int n;
-	vector<int> tops;
+	// Test case 1
+	// Result = 149
+	int result1 = solution(4, {1, 1, 0, 1});
+	cout << "Test case 1: " << result1 << endl;
 
-	cin >> n;
+	// Test case 2
+	// Result = 11
+	int result2 = solution(2, {0, 1});
+	cout << "Test case 2: " << result2 << endl;
 
-	for (int i = 0; i < n; i++)
-	{
-		int top;
-		cin >> top;
-		tops.push_back(top);
-	}
-
-	cout << solution(n, tops);
+	// Test case 3
+	// Result = 7704
+	int result3 = solution(10, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+	cout << "Test case 3: " << result3 << endl;
 
 	return 0;
 }
